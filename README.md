@@ -17,9 +17,3 @@ This project aims to design and prototype a prosthetic device specially for Aaro
 - Vibration motor
 - more?
 
-ee
-e
-e
-e
-e
-

@@ -16,3 +16,10 @@ This project aims to design and prototype a prosthetic device specially for Aaro
 - 3-axis accelerometer
 - Vibration motor
 - more?
+
+ee
+e
+e
+e
+e
+

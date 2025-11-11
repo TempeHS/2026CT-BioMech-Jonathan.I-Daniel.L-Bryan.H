@@ -10,8 +10,10 @@ This project aims to design and prototype a prosthetic device specially for Aaro
 ## Components list:
 - Arduiono
 - Arduino cable
+  
 - Galvanic skin response
-- Vibration motor
-- 3-axis accelerometer
 - Servo motors
+  
+- 3-axis accelerometer
+- Vibration motor
 - potentially more

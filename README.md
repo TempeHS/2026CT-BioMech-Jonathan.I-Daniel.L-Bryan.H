@@ -13,7 +13,6 @@ This project aims to design and prototype a prosthetic device specially for Aaro
   
 - Galvanic skin response
 - Servo motors
-  
 - 3-axis accelerometer
 - Vibration motor
-- potentially more
+- more?

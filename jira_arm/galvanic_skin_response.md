@@ -1,0 +1,1 @@
+The galvanic skin response doesn't seem to react to anything

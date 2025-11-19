@@ -9,10 +9,10 @@ This project aims to create a wearable navigation device that allow Kaia, a blin
 
 ## Components list:
 
-- Ultrasonic sensors 1
+- Ultrasonic sensors 
 - time-of-flight
 - distance measurement
-- vibration motors 2
+- vibration motors
 - accelerometer
 - gyroscope
-- buzzer 3
+- buzzer

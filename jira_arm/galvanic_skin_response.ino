@@ -12,7 +12,7 @@ void loop(){
       {
       sensorValue=analogRead(GSR);
       sum += sensorValue;
-      delay(5);
+      delay(1);
       }
    gsr_average = sum/10;
    Serial.println(gsr_average);

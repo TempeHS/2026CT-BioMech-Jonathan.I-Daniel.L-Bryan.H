@@ -10,9 +10,7 @@
   Source: https://wiki.seeedstudio.com/Grove-Vibration_Motor/
 */
 
-const int motorPin = 3;  // Connect to D3
-
-void setup() {
+void vibration_motor_setup() {
   Serial.begin(9600);
   pinMode(motorPin, OUTPUT);
 
@@ -29,7 +27,7 @@ void setup() {
   Serial.println("Test complete");
 }
 
-void loop() {
+void vibration_motor_loop() {
   // Single vibration pulse every 5 seconds
   Serial.println("Vibrating...");
   digitalWrite(motorPin, HIGH);

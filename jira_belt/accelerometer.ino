@@ -10,12 +10,8 @@
   Source: https://github.com/Seeed-Studio/Seeed_Arduino_LSM6DS3
 */
 
-#include <Wire.h>
-#include "LSM6DS3.h"
 
-LSM6DS3 imu(I2C_MODE, 0x6A);  // I2C address 0x6A
-
-void setup() {
+void accelerometer_setup() {
   Serial.begin(9600);
   Wire.begin();
 
@@ -31,7 +27,7 @@ void setup() {
   Serial.println("Format: AccelX, AccelY, AccelZ (g) | GyroX, GyroY, GyroZ (dps) | Temp (°C)");
 }
 
-void loop() {
+void accelerometer_loop() {
   // Read accelerometer (g)
   float accelX = imu.readFloatAccelX();
   float accelY = imu.readFloatAccelY();

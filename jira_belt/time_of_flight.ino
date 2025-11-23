@@ -1,10 +1,3 @@
-#include <Wire.h>
-#include "Seeed_vl53l0x.h"
-
-Seeed_vl53l0x VL53L0X;
-
-const int buzzerPin = 3;
-const int ledPin = 4;
 
 // Alert thresholds (mm)
 const int criticalDistance = 100;   // < 10cm

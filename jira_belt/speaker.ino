@@ -1,16 +1,10 @@
-/*
-  Purpose: Create emergency siren sound effect
-*/
-
-const int speakerPin = 3;
-
-void setup() {
+void speaker_setup() {
   Serial.begin(9600);
   pinMode(speakerPin, OUTPUT);
   Serial.println("Alarm Siren");
 }
 
-void loop() {
+void speaker_loop() {
   Serial.println("ALARM ACTIVE");
 
   // Rising siren (5 cycles)

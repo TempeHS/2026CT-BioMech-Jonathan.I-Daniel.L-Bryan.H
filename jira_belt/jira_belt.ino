@@ -3,12 +3,17 @@
 
 Seeed_vl53l0x VL53L0X;
 
-const int buzzerPin = 3;
-const int ledPin = 4;
+const int VibrationPin = 1;  
 
-const int speakerPin = 3;
+const int USPin = 2;
 
-const int motorPin = 3;  // Connect to D3
+const int TOFPin = 3;
+
+const int AGPin = 4;
+
+const int speakerPin = 5;
+
+const int motorPin = 6;  
 
 
 #include <Wire.h>

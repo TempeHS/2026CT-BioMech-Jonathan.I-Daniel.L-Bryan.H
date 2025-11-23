@@ -19,12 +19,12 @@ const int motorPin = 6;
 #include <Wire.h>
 #include "LSM6DS3.h"
 
-LSM6DS3 imu(I2C_MODE, 0x6A);  // I2C address 0x6A
+IMU_LSM6DS3 imu(I2C_MODE, 0x6A);  // I2C address 0x6A
 
 void setup() {
-
+speaker_setup();
 }
 
 void loop() {
-
+speaker_loop();
 }

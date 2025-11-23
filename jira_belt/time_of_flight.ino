@@ -4,7 +4,7 @@ const int criticalDistance = 100;   // < 10cm
 const int warningDistance = 300;    // < 30cm
 const int safeDistance = 500;       // > 50cm
 
-void setup() {
+void tof_setup() {
   Serial.begin(9600);
   Wire.begin();
   pinMode(buzzerPin, OUTPUT);
@@ -19,7 +19,7 @@ void setup() {
   Serial.println("Critical: < 10cm | Warning: < 30cm | Safe: > 50cm");
 }
 
-void loop() {
+void tof_loop() {
   VL53L0X_RangingMeasurementData_t measurement;
   VL53L0X.performSingleRangingMeasurement(&measurement);
 

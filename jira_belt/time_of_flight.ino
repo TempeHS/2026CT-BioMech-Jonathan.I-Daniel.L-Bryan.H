@@ -7,8 +7,6 @@ const int safeDistance = 500;       // > 50cm
 void tof_setup() {
   Serial.begin(9600);
   Wire.begin();
-  pinMode(buzzerPin, OUTPUT);
-  pinMode(ledPin, OUTPUT);
 
   if (VL53L0X.begin() != 0) {
     Serial.println("Sensor init failed!");

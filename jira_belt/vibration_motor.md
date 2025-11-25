@@ -1,7 +1,6 @@
-<<<<<<< HEAD
+
 Notes: 
-=======
->>>>>>> 994d678e83d8d09224fc0f4b2c0e6732c37c2124
+
 /*
   Purpose: Control vibration motor for haptic feedback
   Notes:

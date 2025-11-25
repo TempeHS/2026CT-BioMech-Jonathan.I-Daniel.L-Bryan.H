@@ -1,58 +1,48 @@
 
 
-/* void tof_setup() {
+ #include <Wire.h>
+#include "Seeed_vl53l0x.h"
+
+Seeed_vl53l0x VL53L0X;
+
+void setup() {
   Serial.begin(9600);
   Wire.begin();
 
+  Serial.println("VL53L0X Time-of-Flight Distance Sensor");
+
+  // Initialize sensor
   if (VL53L0X.begin() != 0) {
-    Serial.println("Sensor init failed!");
+    Serial.println("VL53L0X initialization failed!");
+    Serial.println("Check I2C connection");
     while (1);
   }
 
-  Serial.println("Proximity Alert System");
-  Serial.println("Critical: < 10cm | Warning: < 30cm | Safe: > 50cm");
+  Serial.println("VL53L0X initialized successfully");
+  Serial.println("Range: 30-2000mm | Resolution: 1mm");
 }
 
-void tof_loop() {
-  VL53L0X_RangingMeasurementData_t measurement;
-  VL53L0X.performSingleRangingMeasurement(&measurement);
+void loop() {
+  VL53L0X_RangingMeasurementData_t RangingMeasurementData;
 
-  if (measurement.RangeStatus == 0) {
-    int distance = measurement.RangeMilliMeter;
+  // Perform distance measurement
+  VL53L0X.performSingleRangingMeasurement(&RangingMeasurementData);
+
+  // Check measurement status
+  if (RangingMeasurementData.RangeStatus == 0) {
+    // Valid measurement
+    int distance_mm = RangingMeasurementData.RangeMilliMeter;
+    float distance_cm = distance_mm / 10.0;
 
     Serial.print("Distance: ");
-    Serial.print(distance);
-    Serial.print(" mm | ");
-
-    if (distance < criticalDistance) {
-      // CRITICAL - very close
-      Serial.println("CRITICAL - TOO CLOSE!");
-      digitalWrite(ledPin, HIGH);
-      tone(buzzerPin, 2000);  // Continuous high tone
-    } else if (distance < warningDistance) {
-      // WARNING - approaching
-      Serial.println("WARNING - Approaching");
-      digitalWrite(ledPin, HIGH);
-      tone(buzzerPin, 1000, 100);  // Beep
-      delay(100);
-      noTone(buzzerPin);
-    } else if (distance < safeDistance) {
-      // CAUTION - in range
-      Serial.println("CAUTION - Monitor");
-      digitalWrite(ledPin, LOW);
-      noTone(buzzerPin);
-    } else {
-      // SAFE - clear
-      Serial.println("SAFE - Clear");
-      digitalWrite(ledPin, LOW);
-      noTone(buzzerPin);
-    }
+    Serial.print(distance_mm);
+    Serial.print(" mm (");
+    Serial.print(distance_cm);
+    Serial.println(" cm)");
   } else {
-    Serial.println("No target detected");
-    digitalWrite(ledPin, LOW);
-    noTone(buzzerPin);
+    // Out of range or error
+    Serial.println("Out of range or no target detected");
   }
 
-  delay(100);
+  delay(100);  // 100ms between readings
 }
-*/

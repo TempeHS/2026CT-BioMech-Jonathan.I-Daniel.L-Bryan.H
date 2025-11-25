@@ -9,7 +9,6 @@ const int warningDistance = 300;    // < 30cm
 const int safeDistance = 500;       // > 50cm
 
 const int USPin = 2;
-const int TOFPin = 3;
 const int AGPin = 4;
 const int speakerPin = 5;
 const int motorPin = 6;  

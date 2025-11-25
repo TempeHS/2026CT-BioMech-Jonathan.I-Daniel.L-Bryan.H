@@ -1,7 +1,7 @@
 
 Notes: 
 
-/*
+
   Purpose: Control vibration motor for haptic feedback
   Notes:
     1. Connect to digital port (D2-D8)
@@ -11,4 +11,3 @@ Notes:
     5. Add delays for distinct vibration patterns
   Author: Ben Jones 18/11/25
   Source: https://wiki.seeedstudio.com/Grove-Vibration_Motor/
-*/

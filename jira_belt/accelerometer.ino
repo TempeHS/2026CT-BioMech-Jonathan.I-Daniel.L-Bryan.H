@@ -1,6 +1,6 @@
 
-
-void accelerometer_setup() {
+#include "imu_globals.h"
+void accel_setup() {
   Serial.begin(9600);
   Wire.begin();
 
@@ -16,7 +16,7 @@ void accelerometer_setup() {
   Serial.println("Format: AccelX, AccelY, AccelZ (g) | GyroX, GyroY, GyroZ (dps) | Temp (°C)");
 }
 
-void accelerometer_loop() {
+void accel_loop() {
   // Read accelerometer (g)
   float accelX = imu.readFloatAccelX();
   float accelY = imu.readFloatAccelY();

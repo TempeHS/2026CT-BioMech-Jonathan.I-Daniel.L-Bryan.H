@@ -1,9 +1,9 @@
 #include <Wire.h>
+#include "LSM6DS3.h"
 #include "Seeed_vl53l0x.h"
-#include <LSM6DS3.h>
 #include "imu_globals.h"
-IMU_LSM6DS3 imu(I2C_MODE, 0x6A);
 
+IMU_LSM6DS3 imu(I2C_MODE, 0x6A);
 Seeed_vl53l0x VL53L0X;
 
 

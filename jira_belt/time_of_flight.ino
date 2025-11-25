@@ -1,7 +1,4 @@
-#include <Wire.h>
-#include "Seeed_vl53l0x.h"
-
-Seeed_vl53l0x VL53L0X;
+#include "imu_globals.h"
 
 const int buzzerPin = 3;
 const int ledPin = 4;

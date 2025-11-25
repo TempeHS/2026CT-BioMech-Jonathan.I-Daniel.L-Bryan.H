@@ -3,17 +3,17 @@
 
 Seeed_vl53l0x VL53L0X;
 
-const int VibrationPin = 1;  
+// Alert thresholds (mm)
+const int criticalDistance = 100;   // < 10cm
+const int warningDistance = 300;    // < 30cm
+const int safeDistance = 500;       // > 50cm
 
 const int USPin = 2;
-
 const int TOFPin = 3;
-
 const int AGPin = 4;
-
 const int speakerPin = 5;
-
 const int motorPin = 6;  
+const int VibrationPin = 7;  
 
 
 #include <Wire.h>

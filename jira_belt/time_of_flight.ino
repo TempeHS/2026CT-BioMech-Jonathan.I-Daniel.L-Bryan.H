@@ -1,10 +1,6 @@
 
-// Alert thresholds (mm)
-const int criticalDistance = 100;   // < 10cm
-const int warningDistance = 300;    // < 30cm
-const int safeDistance = 500;       // > 50cm
 
-void tof_setup() {
+/* void tof_setup() {
   Serial.begin(9600);
   Wire.begin();
 
@@ -59,3 +55,4 @@ void tof_loop() {
 
   delay(100);
 }
+*/

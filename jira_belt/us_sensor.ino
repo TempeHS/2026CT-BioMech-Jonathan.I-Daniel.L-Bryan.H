@@ -1,15 +1,13 @@
 #include "Ultrasonic.h"
 
 Ultrasonic ultrasonic(5);
-const int alertDistance = 20;  // Alert if object within 20cm
-const int ledPin = 13;  // Built-in LED
 
-void setup() {
+void us_setup() {
   Serial.begin(9600);
   pinMode(ledPin, OUTPUT);
 }
 
-void loop() {
+void us_loop() {
   long distance = ultrasonic.MeasureInCentimeters();
 
   Serial.print("Distance: ");

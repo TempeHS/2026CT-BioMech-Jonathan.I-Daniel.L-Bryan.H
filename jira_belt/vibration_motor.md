@@ -1,4 +1,3 @@
-
 Notes: 
 link to dah distance sensor for location
 
@@ -13,3 +12,4 @@ link to dah distance sensor for location
   Source: https://wiki.seeedstudio.com/Grove-Vibration_Motor/
 
 
+It doesn't vibrate :(

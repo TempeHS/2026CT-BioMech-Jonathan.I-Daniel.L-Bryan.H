@@ -17,3 +17,6 @@ git clone https://github.com/Seeed-Studio/Seeed_VL53L0X.git
     5. Eye-safe Class 1 infrared laser (940nm)
   Author: Ben Jones 14/7/23
   Source: https://github.com/Seeed-Studio/Seeed_VL53L0X
+
+I don't know what it does
+- Seems to just randomly activate the test

@@ -1,5 +1,10 @@
 Notes: 
 set up as normal 
+
+doesnt work
+Compilation error: 'class Ultrasonic' has no member named 'MeasureInCentimeters'
+
+
 oid setup() {  
 	pinMode(trigPin, OUTPUT);  
 	pinMode(echoPin, INPUT);  

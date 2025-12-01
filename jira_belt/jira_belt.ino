@@ -3,9 +3,8 @@
 #include "Seeed_vl53l0x.h"
 #include "imu_globals.h"
 
-IMU_LSM6DS3 imu(I2C_MODE, 0x6A);
+LSM6DS3 imu(I2C_MODE, 0x6A);
 Seeed_vl53l0x VL53L0X;
-
 
 // Alert thresholds (mm)
 const int criticalDistance = 100;   // < 10cm

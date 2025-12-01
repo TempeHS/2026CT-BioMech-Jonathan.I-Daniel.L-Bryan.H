@@ -1,5 +1,5 @@
-
 #include "imu_globals.h"
+
 void accel_setup() {
   Serial.begin(9600);
   Wire.begin();

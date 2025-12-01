@@ -5,11 +5,9 @@ const int ledPin = 4;
 
 void tof_setup() {
   Serial.begin(9600);
-  Wire.begin();
+  Wire.begin(); // Initializes I2C bus (uses dedicated I2C pins on Grove Base Shield)
   pinMode(buzzerPin, OUTPUT);
   pinMode(ledPin, OUTPUT);
-
-  // No explicit VL53L0X.init() or begin() needed per local README
 
   Serial.println("Proximity Alert System");
   Serial.println("Critical: < 10cm | Warning: < 30cm | Safe: > 50cm");

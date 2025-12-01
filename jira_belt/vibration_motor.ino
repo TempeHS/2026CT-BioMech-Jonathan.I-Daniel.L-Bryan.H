@@ -1,5 +1,3 @@
-
-
 void vibration_motor_setup() {
   Serial.begin(9600);
   pinMode(motorPin, OUTPUT);

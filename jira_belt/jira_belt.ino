@@ -19,10 +19,15 @@ const int VibrationPin = 7;
 
 
 void setup() {
+vibration_motor_setup();
 speaker_setup();
+tof_setup();
+
 }
 
 void loop() {
+vibration_motor_loop();
 speaker_loop();
+tof_loop();
 }
  

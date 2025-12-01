@@ -3,6 +3,7 @@ set up as normal
 
 doesnt work
 Compilation error: 'class Ultrasonic' has no member named 'MeasureInCentimeters'
+Please fix biriyani huang
 
 
 oid setup() {  

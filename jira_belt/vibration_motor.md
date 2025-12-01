@@ -1,6 +1,6 @@
 
 Notes: 
-
+link to dah distance sensor for location
 
   Purpose: Control vibration motor for haptic feedback
   Notes:

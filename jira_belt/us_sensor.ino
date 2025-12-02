@@ -1,4 +1,4 @@
-#include "Ultrasonic.h"
+/* #include "Ultrasonic.h"
 
 Ultrasonic ultrasonic(5);
 
@@ -23,3 +23,5 @@ void us_loop() {
 
   delay(250);
 }
+
+*/

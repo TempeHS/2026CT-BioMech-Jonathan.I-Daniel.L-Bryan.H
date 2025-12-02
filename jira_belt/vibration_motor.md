@@ -12,4 +12,4 @@ link to dah distance sensor for location
   Source: https://wiki.seeedstudio.com/Grove-Vibration_Motor/
 
 
-It doesn't vibrate :(
+It doesn't vibrate :( except in pin 4

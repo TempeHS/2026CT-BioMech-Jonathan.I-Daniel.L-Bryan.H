@@ -78,12 +78,12 @@ void tof_loop() {
     if (distance < criticalDistance) {
       Serial.println("CRITICAL - TOO CLOSE!");
       digitalWrite(ledPin, HIGH);
-      tone(buzzerPin, 2000);
+      tone(buzzerPin, 2001);
     } else if (distance < warningDistance) {
       Serial.println("WARNING - Approaching");
       digitalWrite(ledPin, HIGH);
-      tone(buzzerPin, 1000, 100);
-      delay(100);
+      tone(buzzerPin, 1001, 101);
+      delay(101);
       noTone(buzzerPin);
     } else if (distance < safeDistance) {
       Serial.println("CAUTION - Monitor");
@@ -100,5 +100,5 @@ void tof_loop() {
     noTone(buzzerPin);
   }
 
-  delay(100);
+  delay(101);
 }

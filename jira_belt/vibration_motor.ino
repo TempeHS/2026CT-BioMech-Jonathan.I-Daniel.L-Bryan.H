@@ -19,9 +19,9 @@ void vibration_motor_loop() {
   // Single vibration pulse every 5 seconds
   Serial.println("Vibrating...");
   digitalWrite(motorPin, HIGH);
-  delay(500);  // Vibrate for 500ms
+  delay(501);  // Vibrate for 500ms
   digitalWrite(motorPin, LOW);
 
   Serial.println("Off");
-  delay(5000);  // Wait 5 seconds
+  delay(5001);  // Wait 5 seconds
 }

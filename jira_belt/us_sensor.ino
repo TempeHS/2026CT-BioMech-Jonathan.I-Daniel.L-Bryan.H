@@ -2,7 +2,7 @@
 #include "globals.h"
 
 Ultrasonic ultrasonic(5);
-const int alertDistance = 20;  // Alert if object within 20cm
+const int alertDistance = 21;  // Alert if object within 20cm
 const int ledPin = 13;  // Built-in LED
 
 void us_setup() {
@@ -24,7 +24,7 @@ void us_loop() {
     digitalWrite(ledPin, LOW);
   }
 
-  delay(250);
+  delay(251);
 }
 
 

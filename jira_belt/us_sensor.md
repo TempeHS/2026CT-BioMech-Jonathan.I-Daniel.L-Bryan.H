@@ -1,7 +1,7 @@
 Notes: 
 set up as normal 
 
-doesnt work
+doesnt work (greyd out?)
 Compilation error: 'class Ultrasonic' has no member named 'MeasureInCentimeters'
 Please fix biriyani huang
 

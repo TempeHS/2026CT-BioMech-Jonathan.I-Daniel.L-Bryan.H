@@ -19,6 +19,7 @@ const int motorPin = 6;
 const int VibrationPin = 7;  
 
 
+
 void setup() {
 //vibration_motor_setup();
 //speaker_setup();
@@ -29,6 +30,9 @@ tof_setup();
 void loop() {
 //vibration_motor_loop();
 //speaker_loop();
+if (g_tof_distance <= 1000 & g_tof_distance > 2) {
+  Serial.println("WARNING");
+}
 tof_loop();
 }
  

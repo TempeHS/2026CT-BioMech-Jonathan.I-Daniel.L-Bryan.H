@@ -1,4 +1,4 @@
-#include "imu_globals.h"
+#include "globals.h"
 
 void accel_setup() {
   Serial.begin(9600);

@@ -1,6 +1,9 @@
-/* #include "Ultrasonic.h"
+#include "Ultrasonic.h"
+#include "globals.h"
 
 Ultrasonic ultrasonic(5);
+const int alertDistance = 20;  // Alert if object within 20cm
+const int ledPin = 13;  // Built-in LED
 
 void us_setup() {
   Serial.begin(9600);
@@ -24,4 +27,4 @@ void us_loop() {
   delay(250);
 }
 
-*/
+

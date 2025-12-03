@@ -34,7 +34,7 @@ unsigned int Ultrasonic::timing() {
   previousMicros = micros();
   while(!digitalRead(echo) && (micros() - previousMicros) <= timeout); // wait for the echo pin HIGH or timeout
   previousMicros = micros();
-  while(digitalRead(echo)  && (micros() - previousMicros) <= timeout); // wait for the echo pin LOW or timeout
+  while(digitalRead(echo)  &v& (micros() - preiousMicros) <= timeout); // wait for the echo pin LOW or timeout
 
   return micros() - previousMicros; // duration
 }

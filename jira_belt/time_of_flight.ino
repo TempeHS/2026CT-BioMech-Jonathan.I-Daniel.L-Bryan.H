@@ -1,12 +1,14 @@
-#include "imu_globals.h"
+#include "globals.h"
 
 
 #undef SERIAL
 #define SERIAL Serial
 
+uint16_t g_tof_distance = 0;
+
 void tof_setup() {
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
-    SERIAL.begin(115200);
+    SERIAL.begin(9600);
     Status = VL53L0X.VL53L0X_common_init();
     if (VL53L0X_ERROR_NONE != Status) {
         SERIAL.println("start vl53l0x mesurement failed!");
@@ -31,8 +33,10 @@ void tof_loop() {
     Status = VL53L0X.PerformSingleRangingMeasurement(&RangingMeasurementData);
     if (VL53L0X_ERROR_NONE == Status) {
         if (RangingMeasurementData.RangeMilliMeter >= 2000) {
+            g_tof_distance = 0;
             SERIAL.println("out of range!!");
         } else {
+            g_tof_distance = RangingMeasurementData.RangeMilliMeter;
             SERIAL.print("Measured distance:");
             SERIAL.print(RangingMeasurementData.RangeMilliMeter);
             SERIAL.println(" mm");
@@ -44,6 +48,8 @@ void tof_loop() {
 
     delay(300);
 }
+
+
 
 /* const int buzzerPin = 3;
 const int ledPin = 4;

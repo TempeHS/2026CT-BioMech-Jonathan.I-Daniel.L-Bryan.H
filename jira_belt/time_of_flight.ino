@@ -8,7 +8,6 @@ uint16_t g_tof_distance = 0;
 
 void tof_setup() {
     VL53L0X_Error Status = VL53L0X_ERROR_NONE;
-    SERIAL.begin(9600);
     Status = VL53L0X.VL53L0X_common_init();
     if (VL53L0X_ERROR_NONE != Status) {
         SERIAL.println("start vl53l0x mesurement failed!");
@@ -102,3 +101,4 @@ void tof_loop() {
 
   delay(101);
 }
+*/

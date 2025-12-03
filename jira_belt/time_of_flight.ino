@@ -45,7 +45,7 @@ void tof_loop() {
         SERIAL.println(Status);
     }
 
-    delay(300);
+    delay(50);
 }
 
 

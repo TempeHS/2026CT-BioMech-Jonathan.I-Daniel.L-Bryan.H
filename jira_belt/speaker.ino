@@ -23,5 +23,5 @@ void speaker_loop() {
 
   noTone(speakerPin);
   Serial.println("Alarm stopped\n");
-  delay(3000);
+  delay(10);
 }

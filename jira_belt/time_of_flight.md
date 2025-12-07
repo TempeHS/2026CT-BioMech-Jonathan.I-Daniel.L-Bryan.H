@@ -23,3 +23,4 @@ Time of flight sensor done
 - Measures distance
 - Max range ~ 1250mm
 - Sends "WARNING" in serial monitor once distance < 1000
+

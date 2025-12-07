@@ -3,7 +3,7 @@ Find way to use +
 (set up on i2c)
 
 also has a temp sensor 
-
+/*
   Purpose: Read 6-axis motion data (accelerometer + gyroscope)
   Notes:
   1. Connect to I2C port
@@ -13,3 +13,7 @@ also has a temp sensor
   5. Temperature sensor built-in
   Author: Ben Jones 14/7/23
   Source: https://github.com/Seeed-Studio/Seeed_Arduino_LSM6DS3
+*/
+
+
+  i 4h  rh

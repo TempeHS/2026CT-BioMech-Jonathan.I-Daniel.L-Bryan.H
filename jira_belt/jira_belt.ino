@@ -16,31 +16,30 @@ const int alertDistance = 20;  // Alert if object within 20cm // US
 const int USPin = 2;
 const int AGPin = 4;
 const int speakerPin = 8;
-const int motorPin = 6;  
-
+const int vibrationPin = 6;  
 
 Ultrasonic ultrasonic(5);
-const int VibrationPin = 7;  
 
 void setup() {
   Serial.begin(9600);
-  //vibration_motor_setup();
-  speaker_setup();
-  us_setup();
-  tof_setup();
+  vibration_motor_setup();
+  //speaker_setup();
+  //us_setup();
+  //tof_setup();
 
 }
 
 void loop() {
-  tof_loop(); 
+  vibration_motor_loop();
+  /* tof_loop(); 
   us_loop();
-  //vibration_motor_loop();
+
 
 
   if (g_tof_distance <= 1000 & g_tof_distance > 2) {
     Serial.println("WARNING");
     speaker_loop();
 }
-
+*/
 }
  

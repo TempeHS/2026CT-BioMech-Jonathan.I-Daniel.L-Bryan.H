@@ -7,8 +7,8 @@ void speaker_setup() {
 void speaker_loop() {
   Serial.println("ALARM ACTIVE");
 
-  // Rising siren (5 cycles)
-  for (int cycle = 0; cycle < 5; cycle++) {
+
+  for (int cycle = 0; cycle < 2; cycle++) {
     // Sweep from 400Hz to 1000Hz
     for (int freq = 400; freq <= 1000; freq += 10) {
       tone(speakerPin, freq);

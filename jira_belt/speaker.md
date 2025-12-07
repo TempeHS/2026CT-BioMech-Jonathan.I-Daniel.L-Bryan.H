@@ -15,6 +15,7 @@ link l
 
  * A speaker to connect to the audio amplifier
  
+  
   1
     2
       3

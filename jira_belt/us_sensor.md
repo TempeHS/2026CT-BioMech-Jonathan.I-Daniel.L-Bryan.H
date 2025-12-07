@@ -77,6 +77,7 @@ void loop() {
   Serial.println(distance);
   delay(100);
 }
+<<<<<<< HEAD
 
   1
     2
@@ -146,3 +147,5 @@ void loop() {
     66
   67
   
+=======
+>>>>>>> a1d10281d1803255e6a389e9b181aa7959328829

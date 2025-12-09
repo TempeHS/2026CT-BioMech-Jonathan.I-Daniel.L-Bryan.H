@@ -11,9 +11,8 @@ Seeed_vl53l0x VL53L0X;
 const int criticalDistance = 100;  // < 10cm // TOF
 const int warningDistance = 300;   // < 30cm // TOF
 const int safeDistance = 500;      // > 50cm // TIF
-const int alertDistance = 20;      // Alert if object within 20cm // US
+const int alertDistance = 20;      // Alert if object gets closer than 20cm // Ultrasonic
 
-const int USPin = 2;
 const int AGPin = 4;
 const int speakerPin = 8;
 const int vibrationPin = 6;
@@ -23,19 +22,19 @@ Ultrasonic ultrasonic(5);
 void setup() {
   Serial.begin(9600);
   // vibration_motor_setup();
-  speaker_setup();
+  // speaker_setup();
   us_setup();
-  tof_setup();
+  // tof_setup();
 }
 
 void loop() {
   // vibration_motor_loop();
-  tof_loop();
+  // tof_loop();
   us_loop();
 
 
-  if (g_tof_distance <= 1000 & g_tof_distance > 2) {
-    Serial.println("WARNING");
-    speaker_loop();
-  }
+  // if (g_tof_distance <= 1000 & g_tof_distance > 2) {
+  //   Serial.println("WARNING");
+  //   speaker_loop();
+  // }
 }

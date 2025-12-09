@@ -4,6 +4,7 @@ export default defineConfig({
   root: ".",
   server: {
     port: 3000,
+    strictPort: true,
     open: true,
     proxy: {
       "/api": {
@@ -21,6 +22,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: "index.html",
+        test: "tests/protocol-test.html",
       },
     },
   },

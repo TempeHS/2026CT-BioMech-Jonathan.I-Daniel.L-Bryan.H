@@ -20,24 +20,21 @@ arduino-cli core install arduino:mbed_rp2040   # Nano RP2040 Connect
 # Install clang-format for code formatting
 sudo apt-get install -y clang-format
 
+# Install Python dependencies for ESP32 toolchain (esptool)
+sudo apt-get install -y python3-pip python3-serial
+
 # Install dependencies for the Arduino Bridge
 if [ -d "arduino-bridge" ]; then
     echo "Installing Arduino Bridge dependencies..."
     cd arduino-bridge
     npm install
-
-    echo "Starting Arduino Bridge server..."
-    nohup npm start > /tmp/arduino-bridge.log 2>&1 &
-    BRIDGE_PID=$!
-    echo "Arduino Bridge running in background (PID: ${BRIDGE_PID}). Logs: /tmp/arduino-bridge.log"
     cd ..
+fi
 
-    if [ -n "$BROWSER" ]; then
-        echo "Opening Arduino Bridge UI in browser..."
-        "$BROWSER" "http://127.0.0.1:3000" >/dev/null 2>&1 &
-    else
-        echo "BROWSER variable not set; open http://127.0.0.1:3000 manually via the Ports tab."
-    fi
+# Generate IntelliSense configuration for default board (Uno R4 WiFi)
+echo "Generating IntelliSense configuration..."
+if [ -f "arduino-bridge/scripts/generate-intellisense.sh" ]; then
+    bash arduino-bridge/scripts/generate-intellisense.sh arduino:renesas_uno:unor4wifi
 fi
 
 echo "Arduino development environment setup complete!"

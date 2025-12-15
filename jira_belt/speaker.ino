@@ -1,27 +1,53 @@
+// Non-blocking speaker implementation
+
+static bool speakerActive = false;  // true when warning beep should run
+static bool speakerBeepOn = false;  // whether a beep is currently playing
+static unsigned long lastBeepMillis = 0;
+static unsigned long beepStartMillis = 0;
+
+const unsigned long BEEP_INTERVAL_MS = 600;  // gap between beeps
+const unsigned long BEEP_DURATION_MS = 150;  // length of each beep
+const int SPEAKER_PIN_LOCAL = 8;             // local pin definition (matches main)
+
+// initialize speaker pin
 void speaker_setup() {
-  Serial.begin(9600);
-  pinMode(speakerPin, OUTPUT);
-  Serial.println("Alarm Siren");
+  pinMode(SPEAKER_PIN_LOCAL, OUTPUT);
+  digitalWrite(SPEAKER_PIN_LOCAL, LOW);
 }
 
+// enable or disable background beeping
+void speaker_set_active(bool active) {
+  speakerActive = active;
+  if (!active) {
+    // stop any ongoing tone immediately
+    noTone(SPEAKER_PIN_LOCAL);
+    speakerBeepOn = false;
+  } else {
+    // kickstart immediate beep if desired
+    lastBeepMillis = millis() - BEEP_INTERVAL_MS;  // cause immediate beep on next loop
+  }
+}
+
+// non-blocking handler; call frequently from loop()
 void speaker_loop() {
-  Serial.println("ALARM ACTIVE");
+  unsigned long now = millis();
+  if (!speakerActive)
+    return;
 
-
-  for (int cycle = 0; cycle < 2; cycle++) {
-    // Sweep from 400Hz to 1000Hz
-    for (int freq = 400; freq <= 1000; freq += 10) {
-      tone(speakerPin, freq);
-      delay(10);
+  if (!speakerBeepOn) {
+    if (now - lastBeepMillis >= BEEP_INTERVAL_MS) {
+      // start beep
+      tone(SPEAKER_PIN_LOCAL, 1000);  // start tone (non-blocking)
+      speakerBeepOn = true;
+      beepStartMillis = now;
+      lastBeepMillis = now;
     }
-    // Sweep back down
-    for (int freq = 1000; freq >= 400; freq -= 10) {
-      tone(speakerPin, freq);
-      delay(10);
+  } else {
+    // check if beep duration elapsed
+    if (now - beepStartMillis >= BEEP_DURATION_MS) {
+      noTone(SPEAKER_PIN_LOCAL);  // stop tone
+      speakerBeepOn = false;
+      // lastBeepMillis left at beep start time to schedule next gap
     }
   }
-
-  noTone(speakerPin);
-  Serial.println("Alarm stopped\n");
-  delay(10);
 }

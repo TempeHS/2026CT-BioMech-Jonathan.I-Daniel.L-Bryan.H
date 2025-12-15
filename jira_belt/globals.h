@@ -6,10 +6,12 @@
 #include "Ultrasonic.h"
 
 extern Ultrasonic ultrasonic;
+extern Ultrasonic ultrasonic2;
 
 extern LSM6DS3 imu;
 extern Seeed_vl53l0x VL53L0X;
 
 extern uint16_t g_tof_distance;
+extern uint16_t g_us_distance;
 
 #endif

@@ -17,24 +17,54 @@ const int AGPin = 4;
 const int speakerPin = 8;
 const int vibrationPin = 6;
 
+// ToF is i2c by default. No pin definitions needed.
+
 Ultrasonic ultrasonic(5);
+Ultrasonic ultrasonic2(7);
+
+// forward declarations (implemented in speaker.ino)
+extern void speaker_set_active(bool active);
+extern void speaker_loop();
+extern void speaker_setup();
 
 void setup() {
   Serial.begin(9600);
   // vibration_motor_setup();
   // speaker_setup();
-  us_setup();
-  // tof_setup();
+  // speaker_setup();  // initialize speaker hardware (safe even if unused)
+  // us_setup();
+  tof_setup();
 }
 
 void loop() {
   // vibration_motor_loop();
-  // tof_loop();
-  us_loop();
+  tof_loop();
+  // us_loop();
 
+  // --- fixed comparisons, set speaker active instead of blocking ---
+  /* if (g_tof_distance <= 1000 && g_tof_distance > 10) {
+  Serial.println("TOF: WARNING");
+  speaker_set_active(true);
+}
+else if (g_tof_distance == 0) {
+  Serial.println("TOF: You have either fallen over, died or there is no object detected");
+  speaker_set_active(false);
+}
+else if (g_tof_distance > 1000) {
+  Serial.println("TOF: SAFE");
+  speaker_set_active(false);
+}
 
-  // if (g_tof_distance <= 1000 & g_tof_distance > 2) {
-  //   Serial.println("WARNING");
-  //   speaker_loop();
-  // }
+if (g_us_distance <= 100 && g_us_distance > 3) {
+  Serial.println("US: WARNING");
+  speaker_set_active(true);
+} else if (g_us_distance == 0) {
+  Serial.println("US: You have either fallen over, died or there is no object detected");
+  speaker_set_active(false);
+} else if (g_us_distance > 100) {
+  Serial.println("US: SAFE");
+  speaker_set_active(false);
+}
+
+speaker_loop(); */
 }

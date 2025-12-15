@@ -14,6 +14,3 @@ also has a temp sensor
   Author: Ben Jones 14/7/23
   Source: https://github.com/Seeed-Studio/Seeed_Arduino_LSM6DS3
 */
-
-
-  i 4h  rh

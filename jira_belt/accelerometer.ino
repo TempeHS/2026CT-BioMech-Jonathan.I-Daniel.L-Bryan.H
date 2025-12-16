@@ -1,5 +1,7 @@
+#include <Wire.h>
+#include "LSM6DS3.h"
 #include "globals.h"
-+
+
 void accel_setup() {
   Serial.begin(9600);
   Wire.begin();
@@ -9,7 +11,8 @@ void accel_setup() {
   // Initialize sensor
   if (imu.begin() != 0) {
     Serial.println("LSM6DS3 initialization failed!");
-    while (1);
+    while (1)
+      ;
   }
 
   Serial.println("LSM6DS3 initialized successfully");

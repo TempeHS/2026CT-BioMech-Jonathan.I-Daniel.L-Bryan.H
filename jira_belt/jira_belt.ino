@@ -30,41 +30,45 @@ extern void speaker_setup();
 void setup() {
   Serial.begin(9600);
   // vibration_motor_setup();
-  // speaker_setup();
-  // speaker_setup();  // initialize speaker hardware (safe even if unused)
-  // us_setup();
+
+  speaker_setup();  // initialize speaker hardware (safe even if unused)
+  us_setup();
   tof_setup();
 }
 
 void loop() {
   // vibration_motor_loop();
   tof_loop();
-  // us_loop();
+  us_loop();
 
-  // --- fixed comparisons, set speaker active instead of blocking ---
-  /* if (g_tof_distance <= 1000 && g_tof_distance > 10) {
-  Serial.println("TOF: WARNING");
-  speaker_set_active(true);
-}
-else if (g_tof_distance == 0) {
-  Serial.println("TOF: You have either fallen over, died or there is no object detected");
-  speaker_set_active(false);
-}
-else if (g_tof_distance > 1000) {
-  Serial.println("TOF: SAFE");
-  speaker_set_active(false);
-}
+  bool desiredSpeaker = false;
 
-if (g_us_distance <= 100 && g_us_distance > 3) {
-  Serial.println("US: WARNING");
-  speaker_set_active(true);
-} else if (g_us_distance == 0) {
-  Serial.println("US: You have either fallen over, died or there is no object detected");
-  speaker_set_active(false);
-} else if (g_us_distance > 100) {
-  Serial.println("US: SAFE");
-  speaker_set_active(false);
-}
+  if (g_tof_distance <= warningDistance && g_tof_distance > 10) {
+    Serial.println("TOF: WARNING");
+    desiredSpeaker = true;
+  } else if (g_tof_distance == 0) {
+    Serial.println("TOF: No object or sensor error");
+  } else {
+    Serial.println("TOF: SAFE");
+  }
 
-speaker_loop(); */
+  if (g_us_distance <= alertDistance && g_us_distance > 3) {
+    Serial.println("US: ALERT (very close)");
+    desiredSpeaker = true;
+  } else if (g_us_distance <= 100 && g_us_distance > 3) {
+    Serial.println("US: WARNING");
+    desiredSpeaker = true;
+  } else if (g_us_distance == 0) {
+    Serial.println("US: No object or sensor error");
+  } else {
+    Serial.println("US: SAFE");
+  }
+
+  static bool prevDesired = false;
+  if (desiredSpeaker != prevDesired) {
+    speaker_set_active(desiredSpeaker);
+    prevDesired = desiredSpeaker;
+  }
+
+  speaker_loop();  // non-blocking speaker handler */
 }

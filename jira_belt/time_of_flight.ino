@@ -1,4 +1,8 @@
+#include <Wire.h>
+#include "LSM6DS3.h"
+#include "Seeed_vl53l0x.h"
 #include "globals.h"
+#include "Ultrasonic.h"
 
 
 #undef SERIAL
